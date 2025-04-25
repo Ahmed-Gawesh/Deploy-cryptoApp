@@ -4,8 +4,8 @@
     {
       "src": "main.py",
       "use": "@vercel/python",
-      "config": { 
-        "runtime": "python@3.11"
+      "config": {
+        "runtime": "python@3.9"
       }
     }
   ],
