@@ -108,6 +108,13 @@ def asymmetric_decryption_list(encryption_system: AsymmetricEncryption, cipherte
     return plaintexts
 
 # Encryption endpoint
+@app.get("/health")
+async def health_check():
+    return {"status": "ok"}
+
+@app.get("/")
+async def root():
+    return {"message": "Encryption System"}
 @app.post("/encrypt", response_model=EncryptionOutput)
 async def encrypt(input: PlaintextInput):
     results = asymmetric_encryption_list(encryption_system, input.plaintext)
