@@ -1,14 +1,15 @@
 import numpy as np
+import tensorflow as tf
 from fastapi import FastAPI, HTTPException
 from pydantic import BaseModel, validator
 from fastapi.middleware.cors import CORSMiddleware
-import tensorflow as tf
 from keras import layers, models
 import logging
 import base64
 from typing import List
 
 app = FastAPI()
+
 @app.get("/health")
 async def health_check():
     return {"status": "ok"}
