@@ -2,7 +2,6 @@ import numpy as np
 from fastapi import FastAPI, HTTPException
 from pydantic import BaseModel, validator
 from fastapi.middleware.cors import CORSMiddleware
-from keras import layers, models, ops 
 import logging
 import os
 import base64
@@ -47,6 +46,7 @@ class Config:
 
 config = Config()
 import tensorflow as tf
+from keras import layers, models, ops 
 class AsymmetricEncryption:
     def __init__(self, config):
         self.config = config
