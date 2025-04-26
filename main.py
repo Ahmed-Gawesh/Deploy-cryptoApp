@@ -1,5 +1,4 @@
 import numpy as np
-import tensorflow as tf
 from fastapi import FastAPI, HTTPException
 from pydantic import BaseModel, validator
 from fastapi.middleware.cors import CORSMiddleware
