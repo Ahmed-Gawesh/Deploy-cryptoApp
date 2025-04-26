@@ -9,6 +9,13 @@ import base64
 from typing import List
 
 app = FastAPI()
+@app.get("/health")
+async def health_check():
+    return {"status": "ok"}
+
+@app.get("/")
+async def root():
+    return {"message": "Encryption System"}
 
 # Enable CORS
 app.add_middleware(
@@ -39,7 +46,7 @@ class Config:
     C_LEN = 32
 
 config = Config()
-
+import tensorflow as tf
 class AsymmetricEncryption:
     def __init__(self, config):
         self.config = config
@@ -107,13 +114,7 @@ def asymmetric_decryption_list(encryption_system: AsymmetricEncryption, cipherte
     return plaintexts
 
 # Encryption endpoint
-@app.get("/health")
-async def health_check():
-    return {"status": "ok"}
 
-@app.get("/")
-async def root():
-    return {"message": "Encryption System"}
 @app.post("/encrypt", response_model=EncryptionOutput)
 async def encrypt(input: PlaintextInput):
     results = asymmetric_encryption_list(encryption_system, input.plaintext)
