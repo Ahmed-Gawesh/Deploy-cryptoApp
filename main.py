@@ -12,7 +12,7 @@ app = FastAPI()
 
 @app.get("/health")
 async def health_check():
-    return {"status": "ok"}
+    return {"status": "healthy"}
 
 @app.get("/")
 async def root():
@@ -126,6 +126,10 @@ async def encrypt(input: PlaintextInput):
 async def decrypt(input: CiphertextInput):
     plaintexts = asymmetric_decryption_list(encryption_system, input.ciphertexts)
     return {"plaintexts": plaintexts}
+
+
+if __name__ == "__main__":
+    uvicorn.run(app, host="0.0.0.0", port=8000)
 
 
 
