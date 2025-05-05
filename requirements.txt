@@ -1,4 +1,4 @@
-tensorflow==2.16.1
+tensorflow==2.15.0
 keras==3.0.4
 numpy==1.26.4
 pydantic==2.6.3
